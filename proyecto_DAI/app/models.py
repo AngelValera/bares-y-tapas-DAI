@@ -33,7 +33,7 @@ class Tapa(models.Model):
 
         # Generamos la ruta relativa a MEDIA_ROOT donde almacenar
         # el archivo
-        ruta = os.path.join('bar',instance.bar.nombre )
+        ruta = os.path.join('bar',instance.bar.slug )
 
         # Generamos el nombre del archivo con un identificador
         # aleatorio, y la extension del archivo original.

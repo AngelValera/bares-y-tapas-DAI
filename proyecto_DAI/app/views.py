@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from app.models import Bar, Tapa
 from app.forms import BarForm,  TapaForm, RegistroForm
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
 
 def index(request):
     context_dict = {}
@@ -213,3 +214,17 @@ def registrar_usuario(request)	:
     	formulario = RegistroForm()
 
     return render(request,"app/registro.html", {"formulario":formulario, 'bares': bares})
+
+def reclama_datos (request):
+    datos = {}
+    vbares=[]
+    vVisitas=[]
+    bares = Bar.objects.order_by('-visitas')
+    for bar in bares:
+        vbares.append(bar.nombre)
+        vVisitas.append(bar.visitas)
+    print vbares
+        
+    datos ['bares']= vbares
+    datos ['visitas']= vVisitas
+    return JsonResponse(datos, safe=False)

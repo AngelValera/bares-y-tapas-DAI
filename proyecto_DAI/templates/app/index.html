@@ -1,7 +1,7 @@
 {% extends "app/base.html" %}
 
+{% load staticfiles %}
 {% block title %}-Portada{% endblock %}
-
 {% block content %}
   {% if user.is_authenticated %}
   <div class="page-header">
@@ -9,23 +9,6 @@
   {% else %}
     <h1>Bienvenido desconocido</h1>
   {% endif %}
-
-  <button class="btn btn-default btn-xs" id="pequena">Letra pequeña</button>
-  <button class="btn btn-default btn-xs" id="grande">Letra grande</button>
-  <button  class="btn btn-default btn-xs" id ="normal">Letra normal</button>
-
-
-
-<script>
-$(document).ready(function(){
-    $("body").click(function(){
-        $(this).hide();
-    });
-});
-</script>
-
-
-
 
   </div>
   <div class="row placeholders">
@@ -61,6 +44,9 @@ $(document).ready(function(){
         <strong>No hay tapas presentes.</strong>
       {% endif %}
     </div>
-  </div>
 
+
+
+  </div>
+  <div id="container" style="width:100%; height:400px;"></div>
 {% endblock %}

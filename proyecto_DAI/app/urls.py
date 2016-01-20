@@ -3,6 +3,7 @@ from app import views
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
+        url(r'^reclama_datos/', views.reclama_datos, name='reclama_datos'),
         url(r'^bar/(?P<bar_name_slug>[\w\-]+)/$', views.bar, name='bar'),
         url(r'^bar/(?P<bar_name_slug>[\w\-]+)/(?P<tapa_name_slug>[\w\-]+)/$', views.tapa, name='tapa'),
         url(r'^add_bar/$', views.add_bar, name='add_bar'),
