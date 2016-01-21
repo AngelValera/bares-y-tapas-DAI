@@ -7,7 +7,7 @@
 <div class="page-header">
   <h1>Añadir una nueva tapa</h1>
 </div>
-  <form  role="form" style="margin:3%" id="tapar_form" method="post" action="/add_tapa/">
+  <form  role="form" enctype="multipart/form-data"  style="margin:3%" id="tapar_form" method="post" action="/add_tapa/">
 
       {% csrf_token %}
       {% for hidden in form.hidden_fields %}

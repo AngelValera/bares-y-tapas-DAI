@@ -14,17 +14,18 @@
   <div class="row placeholders">
     <div class="col-xs-12 col-sm-6 placeholder">
       <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Tapas</h3>
+        <div class="panel-heading" >
+          <h3 class="panel-title" >Tapas</h3>
         </div>
-        <div class="col-xs-12 col-sm-6 placeholder" style="margin-top:10px">
+        <div class="col-xs-12 col-sm-6 placeholder"  style="margin-top:10px; width:92%;">
           {% if tapas %}
             <ul>
               {% for tapa in tapas %}
                 {% if tapa.picture %}
-                  <li class="list-group-item"><a href="{% url 'tapa'  bar.slug tapa.slug %}"><img class="img-rounded" width="100%" height="100%" src="{{tapa.picture.url}}" alt="{{ tapa.nombre }}" /></a></li>
+                  <li class="list-group-item" ><a href="{% url 'tapa'  bar.slug tapa.slug %}"><img class=" .thumbnail" style=" border-radius:0;" width="100%" height="100%" src="{{tapa.picture.url}}" alt="{{ tapa.nombre }}" /></a></li>
                 {% endif %}
-                <li class="list-group-item"><a href="{% url 'tapa'  bar.slug tapa.slug %}">{{ tapa.nombre }}</a></li>
+                <li class="list-group-item"><a href="{% url 'tapa'  bar.slug tapa.slug %}">{{ tapa.nombre }}</a>
+                </li>
               {% endfor %}
             </ul>
             {% else %}

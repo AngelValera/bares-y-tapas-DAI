@@ -15,17 +15,31 @@ class BarForm(forms.ModelForm):
         fields = ('nombre', 'direccion')
 
 class TapaForm(forms.ModelForm):
-    nombre = forms.CharField(max_length=128, help_text="Introduce el nombre de la tapa.")
+    nombre = forms.CharField(max_length=128, help_text="Introduce el nombre de la tapa.", widget=forms.TextInput())
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     descripcion = forms.CharField(widget=forms.Textarea(attrs={'rows':3, 'cols': 50}),max_length=200, help_text="Introduce una breve descripcion  de la tapa.")
     votos = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     bar = forms.ModelChoiceField(queryset=Bar.objects.all(),empty_label=None,help_text="Introduce el bar al que pertenece la tapa.")
 
+
+
+    def clean_nombre(self):
+        nombre = self.cleaned_data['nombre']
+        try:
+            tapa = Tapa.objects.get(nombre=nombre, bar=self.cleaned_data['bar'])
+        except Tapa.DoesNotExist:
+            return nombre
+        raise forms.ValidationError('***Esta tapa ya existe en este bar***')
+
+    #picture = forms.ImageField(required=True)
+
     class Meta:
         # Provide an association between the ModelForm and a model
         model = Tapa
         fields = ('bar','nombre','descripcion', 'picture')
+
+
 
 class RegistroForm(forms.Form):
     nombre = forms.CharField(label="Nombre :", widget=forms.TextInput())
@@ -36,6 +50,7 @@ class RegistroForm(forms.Form):
     password2 = forms.CharField(label="confirmar password :", widget=forms.PasswordInput(render_value=False),max_length=8)
 
     def clean_username(self):
+        print "Entra en el metodo"
     	username = self.cleaned_data['username']
     	try:
     		u = User.objects.get(username=username)

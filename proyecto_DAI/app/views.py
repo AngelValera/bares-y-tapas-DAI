@@ -11,7 +11,10 @@ from django.contrib.auth.models import User
 def index(request):
     context_dict = {}
 
-    bares = Bar.objects.order_by('-visitas')[:5]
+    bares_ordenados = Bar.objects.order_by('-visitas')[:5]
+    context_dict['bares_ordenados']= bares_ordenados
+
+    bares = Bar.objects.all()
     context_dict['bares']= bares
 
     tapas = Tapa.objects.order_by('-votos')[:5]
@@ -52,20 +55,21 @@ def tapa(request, bar_name_slug, tapa_name_slug):
 
     # Create a context dictionary which we can pass to the template rendering engine.
     context_dict = {}
-    print "llama a mostrar tapas"
     try:
         bares = Bar.objects.all()
         context_dict['bares']= bares
-
+        bar = Bar.objects.get(slug=bar_name_slug)
         tapas = Tapa.objects.all()
         context_dict['tapas']= tapas
 
-        tapa = Tapa.objects.get(slug=tapa_name_slug)
+        tapa = Tapa.objects.get(slug=tapa_name_slug, bar=bar)
+        context_dict['tapa'] = tapa
+        context_dict['tapa_id'] = tapa
         context_dict['tapa_name'] = tapa.nombre
         context_dict['tapa_voto'] = tapa.votos
         context_dict['tapa_descripcion'] = tapa.descripcion
         context_dict['tapa_imagen'] = tapa.picture
-
+        context_dict['tapa_bar'] = tapa.bar
         # Adds our results list to the template context under name pages.
         context_dict['tapas'] = tapas
     except Tapa.DoesNotExist:
@@ -148,13 +152,13 @@ def add_tapa(request):
     context_dict['bares']= bares
     # A HTTP POST?
     if request.method == 'POST':
-        form = TapaForm(request.POST)
+        form = TapaForm(request.POST,request.FILES)
         # Have we been provided with a valid form?
         if form.is_valid():
             if 'picture' in request.FILES:
                 form.picture = request.FILES['picture']
             # Save the new category to the database.
-            form.save(commit=True)
+            form.save()
             # Now call the index() view.
             # The user will be shown the homepage.
             return index(request)
@@ -223,8 +227,22 @@ def reclama_datos (request):
     for bar in bares:
         vbares.append(bar.nombre)
         vVisitas.append(bar.visitas)
-    print vbares
-        
     datos ['bares']= vbares
     datos ['visitas']= vVisitas
     return JsonResponse(datos, safe=False)
+
+@login_required
+def voto_tapa(request):
+    tapa_id = None
+    if request.method == 'GET':
+        tapa_id = request.GET['tapa_id']
+        print tapa_id
+    votos = 0
+    if tapa_id:
+        tapa = Tapa.objects.get(id=int(tapa_id))
+        if tapa:
+            votos = tapa.votos + 1
+            tapa.votos =  votos
+            tapa.save()
+
+    return HttpResponse(votos)

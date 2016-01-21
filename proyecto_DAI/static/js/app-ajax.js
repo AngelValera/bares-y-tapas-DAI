@@ -1,5 +1,5 @@
 $(function(){
-
+  //----------------------------------------------------------------------------
   $.ajax({
     url: "/reclama_datos/",
     type: 'get',
@@ -10,7 +10,7 @@ $(function(){
       alert('esto no vá');
     }
   });
-
+  //----------------------------------------------------------------------------
 	function Visualiza_datos (datos) {
     var bares=[];
 		var vis=[];
@@ -23,14 +23,14 @@ $(function(){
         type: 'bar'
       },
       title: {
-        text: 'Visitas bares'
+        text: 'Número de visitas a los bares'
       },
       xAxis: {
         categories: bares
       },
       yAxis: {
         title: {
-          text: 'numero de visitas'
+          text: 'número de visitas'
         }
       },
       series: [
@@ -42,5 +42,26 @@ $(function(){
     });
 
 	};
+  //----------------------------------------------------------------------------
+  $('.megusta').focus(function(){
+    var identificadorboton;
+    identificadorboton = $(this).attr("id");
+    //alert(identificadorboton);
+
+    $('#'+identificadorboton).click(function(){
+      var tapaid;
+      tapaid = $(this).attr("data-tapid");
+      //alert(tapaid);
+      $.get('/voto_tapa/', {tapa_id:tapaid}, function(data){
+                 $('#like_count').html(data);
+                 $('#'+identificadorboton).hide();
+      });
+    });
+
+
+  });
+
+
+
 
 });

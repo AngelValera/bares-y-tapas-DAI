@@ -67,10 +67,8 @@
 						{% if user.is_authenticated %}
 						<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
 						<li><a href="{% url 'logout' %}">Logout</a></li>
-						{% if user.is_superuser %}
-							<li><a href="{% url 'add_bar' %}">Añadir nuevo Bar</a></li>
-							<li><a href="{% url 'add_tapa' %}">Añadir nueva tapa</a></li>
-						{% endif %}
+						<li><a href="{% url 'add_bar' %}">Añadir nuevo Bar</a></li>
+						<li><a href="{% url 'add_tapa' %}">Añadir nueva tapa</a></li>
 						{% else %}
 							<li><a href="{% url 'registro' %}">Registrarse</a></li>
 							<li><a href="{% url 'login' %} ">Login</a></li>

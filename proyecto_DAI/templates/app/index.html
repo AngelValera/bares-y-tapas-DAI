@@ -20,7 +20,7 @@
       </div>
       {% if bares %}
         <ul>
-        {% for bar in bares %}
+        {% for bar in bares_ordenados %}
           <li class="list-group-item"><a href="{% url 'bar'  bar.slug %}">{{ bar.nombre }}</a></li>
         {% endfor %}
         </ul>
@@ -37,6 +37,7 @@
       {% if tapas %}
         <ul>
           {% for tapa in tapas %}
+
             <li class="list-group-item"><a href="{% url 'tapa'  tapa.bar.slug tapa.slug %}">{{ tapa.nombre }}</a></li>
           {% endfor %}
         </ul>

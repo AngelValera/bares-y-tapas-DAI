@@ -20,13 +20,14 @@ class Bar(models.Model):
 class Tapa(models.Model):
 
     bar = models.ForeignKey(Bar)
-    nombre = models.CharField(max_length=128, primary_key=True)
+    nombre = models.CharField(max_length=128)
     votos = models.IntegerField(default=0)
     descripcion= models.CharField(max_length=500)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField()
 
 
-    def _generar_ruta_imagen(instance, filename):
+    def generar_ruta_imagen(instance, filename):
+        print "Entra en generar ruta"
         # El primer paso es extraer la extension de la imagen del
         # archivo original
         extension = os.path.splitext(filename)[1][1:]
@@ -42,7 +43,9 @@ class Tapa(models.Model):
         # Devolvermos la ruta completa
         return os.path.join(ruta, nombre_archivo)
 
-    picture = models.ImageField(upload_to=_generar_ruta_imagen, blank=True)
+    print generar_ruta_imagen
+
+    picture = models.ImageField(upload_to=generar_ruta_imagen, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)
