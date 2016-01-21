@@ -1,1 +1,1 @@
-web: gunicorn Proyecto_DAI.wsgi --log-file -
+web: gunicorn proyecto_DAI.wsgi --log-file -
