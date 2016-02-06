@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,11 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0m^mr=e)7$5=zip26qlw+qe74#+#g!#mxx!epvxa#i1o6wvx7c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -57,7 +55,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'proyecto_DAI.urls'
-
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
@@ -90,11 +87,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-ON_HEROKU = os.environ.get('PORT')
-if ON_HEROKU:
-    DATABASE_URL='postgres://amxevqkzpakhbo:EACaJwR1lNNQ8O0bNjn966gylQ@ec2-54-83-194-117.compute-1.amazonaws.com:5432/d63qm00mn76o2a'
-    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -115,12 +107,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_PATH = os.path.join(BASE_DIR,'static')
+
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 PASSWORD_HASHERS = (
 'django.contrib.auth.hashers.PBKDF2PasswordHasher',
