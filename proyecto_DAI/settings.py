@@ -71,8 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'django.core.context_processors.media',
-                # 'django.core.context_processors.static',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
             ],
         },
     },
@@ -119,7 +119,7 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     STATIC_PATH,
 )
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
