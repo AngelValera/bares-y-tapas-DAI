@@ -17,6 +17,6 @@ requests-futures==0.9.5
 static3==0.6.1
 setuptools==0.7.3
 WTForms==2.0.2
-whitenoise==2.0.4
+whitenoise==2.0.6
 wheel==0.26.0
 wsgiref==0.1.2
