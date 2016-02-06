@@ -43,10 +43,7 @@ INSTALLED_APPS = (
     'easy_maps',
 )
 
-if django.VERSION < (1, 7):
-    INSTALLED_APPS += (
-        'south',
-    )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
