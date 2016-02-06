@@ -89,6 +89,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+ON_HEROKU = os.environ.get('PORT')
+if ON_HEROKU:
+    DATABASE_URL='postgres://ippuzjoimexczg:ro2uCzqEyQApvW2WLNeuVukZal@ec2-107-21-222-62.compute-1.amazonaws.com:5432/d2hhq8sg9f3pog'
+    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
 # Internationalization
