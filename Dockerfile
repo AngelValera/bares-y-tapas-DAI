@@ -21,10 +21,10 @@ RUN sudo pip install --upgrade pip
 
 #Instalar la app
 RUN ls
-RUN cd proyectoIV-Modulo-1/ && ls -l
-RUN cd proyectoIV-Modulo-1/ && cat requirements.txt
-RUN cd proyectoIV-Modulo-1/ && sudo pip install -r requirements.txt
+RUN cd bares-y-tapas-DAI/ && ls -l
+RUN cd bares-y-tapas-DAI/ && cat requirements.txt
+RUN cd bares-y-tapas-DAI/ && sudo pip install -r requirements.txt
 
 #Migraciones
-RUN cd proyectoIV-Modulo-1/ && python populate_app.py
-RUN cd proyectoIV-Modulo-1/ && python manage.py migrate --noinput
+RUN cd bares-y-tapas-DAI/ && python populate_app.py
+RUN cd bares-y-tapas-DAI/ && python manage.py migrate --noinput
