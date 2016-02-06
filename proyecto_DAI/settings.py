@@ -26,7 +26,7 @@ SECRET_KEY = '0m^mr=e)7$5=zip26qlw+qe74#+#g!#mxx!epvxa#i1o6wvx7c'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+TEMPLATE_DEBUG = True
 
 # Application definition
 INSTALLED_APPS = (
@@ -41,7 +41,12 @@ INSTALLED_APPS = (
     'easy_maps',
 )
 
+import django
 
+if django.VERSION < (1, 7):
+    INSTALLED_APPS += (
+        'south',
+    )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -87,7 +92,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+ON_HEROKU = os.environ.get('PORT')
+if ON_HEROKU:
+	DATABASE_URL='postgres://amxevqkzpakhbo:EACaJwR1lNNQ8O0bNjn966gylQ@ec2-54-83-194-117.compute-1.amazonaws.com:5432/d63qm00mn76o2a'
+	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+STATIC_ROOT = 'staticfiles'STATIC_ROOT = 'staticfiles'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
