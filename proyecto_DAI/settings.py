@@ -96,7 +96,9 @@ ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
 	DATABASE_URL='postgres://amxevqkzpakhbo:EACaJwR1lNNQ8O0bNjn966gylQ@ec2-54-83-194-117.compute-1.amazonaws.com:5432/d63qm00mn76o2a'
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-STATIC_ROOT = 'staticfiles'STATIC_ROOT = 'staticfiles'
+
+
+STATIC_ROOT = 'staticfiles'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
