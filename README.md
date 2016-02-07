@@ -18,7 +18,7 @@ Aplicación desarrollada para las asignaturas de infraestructura virtual y desar
 
 He elegido llevar a cabo este proyecto, porque se centra en la virtualización de recursos como puede ser el uso de máquinas virtuales para el despliegue de una aplicación para Internet, usando también para ello un framework de alto nivel.
 
-**Estamos inscritos en el certamen de proyectos de la UGR organizado por la OSL.**
+**Estoy inscrito en el certamen de proyectos de la UGR organizado por la OSL.**
 
 ##**Estructura del proyecto**##
 Al tratarse de un proyecto python, desarrollado en django, tenemos tres directorios principales:
@@ -41,7 +41,7 @@ cd bares-y-tapas-DAI
 python manage.py migrate
 python manage.py runserver
 ```
-##**Integración continua**##
+##**1-Integración continua**##
 
 Para la integración continua he utilizado travis, ya que es el que me ha resultado más sencillo de utilizar junto con github.
 
