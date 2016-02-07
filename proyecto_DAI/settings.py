@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0m^mr=e)7$5=zip26qlw+qe74#+#g!#mxx!epvxa#i1o6wvx7c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 TEMPLATE_DEBUG = True
 
 # Application definition
@@ -98,7 +98,8 @@ if ON_HEROKU:
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
