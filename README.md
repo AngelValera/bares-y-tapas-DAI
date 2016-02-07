@@ -57,6 +57,13 @@ Estos test se usarán tanto en el despliegue en un Paas como en la integración 
 [Más Información](https://github.com/AngelValera/proyectoIV-Modulo-1/blob/master/Documentacion/IntCont.mds)
 
 
+##**2-Despliegue en un Paas Heroku**##
+
+El siguiente paso es desplegar nuestra aplicación en un Paas, he utilizado heroku, lo he escogido porque aprendí a utilizarlo con los ejercicios del tema 3 y me resultó sencillo de usar, además de porque necesita un fichero de configuración que describe la infraestructura virtual.
+
+La aplicación podemos verla funcionando [aquí](http://appbaresytapas.herokuapp.com/).
+
+[Más Información](https://github.com/AngelValera/proyectoIV-Modulo-1/blob/master/Documentacion/PAAS.md)
 
 
 
