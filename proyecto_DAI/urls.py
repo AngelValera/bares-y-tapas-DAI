@@ -17,7 +17,7 @@ from django.conf.urls import include, patterns, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # Create a new class that redirects the user to the index page, if successful at logging
 
@@ -29,7 +29,10 @@ urlpatterns = [
 
 if not settings.DEBUG:
         urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
 if settings.DEBUG:
     urlpatterns += patterns(
         'django.views.static',
