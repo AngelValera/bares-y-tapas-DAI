@@ -59,7 +59,7 @@ Estos test se usarán tanto en el despliegue en un Paas como en la integración 
 
 ##**2-Despliegue en un Paas Heroku**##
 
-El siguiente paso es desplegar nuestra aplicación en un Paas, he utilizado heroku, lo he escogido porque aprendí a utilizarlo con los ejercicios del tema 3 y me resultó sencillo de usar, además de porque necesita un fichero de configuración que describe la infraestructura virtual.
+El siguiente paso es desplegar nuestra aplicación en un Paas, he utilizado heroku, lo he escogido porque aprendí a utilizarlo con los ejercicios del tema 3 y me resultó sencillo de usar, además de porque necesita un fichero de configuración que describe la infraestructura virtual. Se añade además un script de automatización **[heroku.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/heroku.sh)**.
 
 La aplicación podemos verla funcionando [aquí](http://appbaresytapas.herokuapp.com/).
 
