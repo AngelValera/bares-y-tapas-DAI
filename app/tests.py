@@ -30,8 +30,8 @@ class BarMethodTests(TestCase):
 		print("Test: Creación de un nuevo bar correcta")
 
     def test_login(self):
-		response = self.client.get('/login/')
-		self.assertEqual(response.status_code, 200)
+        response = self.client.get('/login/')
+        self.assertEqual(response.status_code, 200)
 
 
 class TapaMethodTests(TestCase):
