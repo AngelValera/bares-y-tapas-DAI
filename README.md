@@ -68,12 +68,9 @@ La aplicación podemos verla funcionando [aquí](http://appbaresytapas.herokuapp
 
 ##**Entorno de pruebas**##
 
-Para el entorno de pruebas se ha utilizado Docker el cual está basado en un sistema de contenedores. Para su uso, he creado una imagen basada en Ubuntu la cual tiene la aplicación de bares y tapas descargada y preparada para su ejecución y la cual puede ser obtenida con una sola orden desde DockerHub. [Imagen en DockerHub](https://hub.docker.com/r/angelvalera/bares-y-tapas-dai/)
+Para el entorno de pruebas se ha utilizado Docker el cual está basado en un sistema de contenedores. Para su uso, he creado una imagen basada en Ubuntu la cual tiene la aplicación de bares y tapas descargada y preparada para su ejecución y la cual puede ser obtenida con una sola orden desde [DockerHub](https://hub.docker.com/r/angelvalera/bares-y-tapas-dai/). Se añade además un script de automatización **[docker.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/docker.sh)**.
 
 [Más Información](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Documentacion/Docker.md)
-e añade además un script de automatización **[docker.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/docker.sh)**.
-
-
 
 
 
