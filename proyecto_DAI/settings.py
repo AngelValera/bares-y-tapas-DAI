@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0m^mr=e)7$5=zip26qlw+qe74#+#g!#mxx!epvxa#i1o6wvx7c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-TEMPLATE_DEBUG = True
+ALLOWED_HOSTS = []
+
 
 # Application definition
 INSTALLED_APPS = (
@@ -41,12 +41,7 @@ INSTALLED_APPS = (
     'easy_maps',
 )
 
-import django
 
-if django.VERSION < (1, 7):
-    INSTALLED_APPS += (
-        'south',
-    )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,13 +87,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-ON_HEROKU = os.environ.get('PORT')
-if ON_HEROKU:
-	DATABASE_URL='postgres://tnvbvmmuroapil:Myi9_1JBJZSP6EzjtEWN7Q9Arh@ec2-54-204-5-56.compute-1.amazonaws.com:5432/dfoub80thb1lb4'
-	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

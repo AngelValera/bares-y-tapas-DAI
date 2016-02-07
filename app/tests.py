@@ -30,11 +30,6 @@ class BarMethodTests(TestCase):
 		print("Test: Creación de un nuevo bar correcta")
 
 
-	def test_login(self):
-		response = self.client.get('/login/')
-		self.assertEqual(response.status_code, 200)
-
-
 class TapaMethodTests(TestCase):
     def test_crear_tapa(self):
         bar1= add_bar('Plaza','España Orce Plaza Nueva nº 4')
@@ -72,3 +67,5 @@ class IndexViewTests(TestCase):
         num_bares =len(response.context['bares'])
         self.assertEqual(num_bares , 4)
         print("Test:Petición a la portada con bares Correcta")
+
+    
