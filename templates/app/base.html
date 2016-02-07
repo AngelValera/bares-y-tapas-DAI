@@ -83,20 +83,10 @@
 					{% block secciones %}
 					<!--******************************************************************************************************************************************************-->
 
-					<div class="btn-group-vertical">
-						<button class="btn btn-default btn-xs" id="btn-pequena">Letra pequeña</button>
-						<button class="btn btn-default btn-xs" id="btn-grande">Letra grande</button>
-						<button  class="btn btn-default btn-xs" id ="btn-normal">Letra normal</button>
-				</div>
-
-
-				<script>
-
-				</script>
 
 
 
-					<!--******************************************************************************************************************************************************-->
+				<!--******************************************************************************************************************************************************-->
 						<h3>
 							<b> BARES </b>
 						</h3>
@@ -112,12 +102,18 @@
 								<strong>No hay Bares presentes.</strong>
 							{% endif %}
 						</nav>
+						<div class="btn-group-vertical">
+							<button class="btn btn-default btn-xs" id="btn-pequena">Letra pequeña</button>
+							<button class="btn btn-default btn-xs" id="btn-grande">Letra grande</button>
+							<button  class="btn btn-default btn-xs" id ="btn-normal">Letra normal</button>
+					</div>
 					{% endblock %}
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+					{% block content %}{% endblock %}
+
 					<div>
 						<!--CONTENIDO DE LA PAGINA-->
-						{% block content %}{% endblock %}
 
 						<!--Pie de página-->
 						{% block footer %}
