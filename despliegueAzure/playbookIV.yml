@@ -1,0 +1,28 @@
+- hosts: localhost
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Actualizar repositorios
+    apt: update_cache=yes
+
+  - name: Instalar dependencias
+    apt: name={{ item }}
+    with_items:
+      - python-setuptools
+      - python-dev
+      - build-essential
+      - python-psycopg2
+      - git
+
+  - name: easy_install
+    easy_install: name=pip
+
+  - name: Descargar fuentes
+    git: repo=https://github.com/AngelValera/bares-y-tapas-DAI dest=~/appBaresyTapas force=yes
+
+  - name: Instalar requirements
+    pip: requirements=~/appBaresyTapas/requirements.txt
+
+  - name: Lanzar app
+    command: nohup python ~/appBaresyTapas/manage.py runserver 0.0.0.0:80
