@@ -24,10 +24,10 @@ def add_tapa(bar, nombre, descripcion, votos=0):
 
 class BarMethodTests(TestCase):
 
-	def test_crear_bar(self):
-		bar1= add_bar('Plaza','España Orce Plaza Nueva nº 4')
-		self.assertEqual(bar1.nombre,'Plaza' )
-		print("Test: Creación de un nuevo bar correcta")
+    def test_crear_bar(self):
+        bar1= add_bar('Plaza','España Orce Plaza Nueva nº 4')
+        self.assertEqual(bar1.nombre,'Plaza' )
+        print("Test: Creación de un nuevo bar correcta")
 
     def test_login(self):
         response = self.client.get('/login/')
