@@ -63,7 +63,7 @@ El siguiente paso es desplegar nuestra aplicación en un Paas, he utilizado hero
 
 La aplicación podemos verla funcionando [aquí](http://appbaresytapas.herokuapp.com/).
 
-[Más Información](https://github.com/AngelValera/proyectoIV-Modulo-1/blob/master/Documentacion/PAAS.md)
+[Más Información](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Documentacion/PAAS.md)
 
 
 
