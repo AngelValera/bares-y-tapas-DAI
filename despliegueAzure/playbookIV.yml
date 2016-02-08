@@ -19,10 +19,7 @@
     easy_install: name=pip
 
   - name: Descargar fuentes
-    git: repo=https://github.com/AngelValera/bares-y-tapas-DAI dest=~/appBaresyTapas force=yes
+    git: repo=https://github.com/AngelValera/bares-y-tapas-DAI dest=~/bares-y-tapas-DAI force=yes
 
   - name: Instalar requirements
-    pip: requirements=~/appBaresyTapas/requirements.txt
-
-  - name: Lanzar app
-    command: nohup python ~/appBaresyTapas/manage.py runserver 0.0.0.0:80
+    pip: requirements=~/bares-y-tapas-DAI/requirements.txt
