@@ -57,7 +57,7 @@ Estos test se usarán tanto en el despliegue en un Paas como en la integración 
 [Más Información](https://github.com/AngelValera/proyectoIV-Modulo-1/blob/master/Documentacion/IntCont.mds)
 
 
-##**2-Despliegue en un Paas Heroku**##
+##**2-Despliegue en un PaaS Heroku**##
 
 El siguiente paso es desplegar nuestra aplicación en un Paas, he utilizado heroku, lo he escogido porque aprendí a utilizarlo con los ejercicios del tema 3 y me resultó sencillo de usar, además de porque necesita un fichero de configuración que describe la infraestructura virtual. Se añade además un script de automatización **[heroku.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/heroku.sh)**.
 
@@ -66,19 +66,25 @@ La aplicación podemos verla funcionando [aquí](http://appbaresytapas.herokuapp
 [Más Información](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Documentacion/PAAS.md)
 
 
-##**Entorno de pruebas**##
+##**3-Entorno de pruebas**##
 
 Para el entorno de pruebas se ha utilizado Docker el cual está basado en un sistema de contenedores. Para su uso, he creado una imagen basada en Ubuntu la cual tiene la aplicación de bares y tapas descargada y preparada para su ejecución y la cual puede ser obtenida con una sola orden desde [DockerHub](https://hub.docker.com/r/angelvalera/bares-y-tapas-dai/). Se añade además un script de automatización **[docker.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/docker.sh)**.
 
 [Más Información](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Documentacion/Docker.md)
 
 
+##**4-Despliegue en un IaaS AZURE**##
 
 
+Para el despliegue de la aplicación en un IaaS, he decidido usar Vagrant para la creación de máquinas virtuales, y Ansible para el provisionamiento de dichas máquinas virtuales, los elijo porque me han resultado más fáciles de usar que por ejemplo chef y su árbol específico de directorios. Las máquinas virtuales se crearán en una cuenta de Azure, configurada correctamente.
+
+Para instalar tanto vagrant como ansible se proporiona un script llamado **[install_Azure_Vagrant.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/install_Azure_Vagrant.sh)** y para desplegar la aplicación completa en una máquina de azure se proporciona otro script llamado **[azure.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/azure.sh)**
 
 
+La aplicación podemos verla funcionando [aquí](http://maquinaavm-service-xuybo.cloudapp.net/).
 
 
+[Más Información](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Documentacion/IAAS.md)
 
 
 
