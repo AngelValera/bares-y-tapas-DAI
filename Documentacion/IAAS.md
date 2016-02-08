@@ -155,7 +155,7 @@ sudo fab -p 'Clave#Angel#1' -H vagrant@maquinaavm-service-xuybo.cloudapp.net eje
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/Seleccioacuten_011_zpscxuy4rvj.png)
 
-* podemos comprobar que efectivamente funciona, [aplicación](http://maquinaavm2.cloudapp.net/):
+* podemos comprobar que efectivamente funciona, [aplicación](http://maquinaavm-service-xuybo.cloudapp.net/):
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Ejercicios%20tema%206/Seleccioacuten_004_zpskpbu6eux.png)
 
