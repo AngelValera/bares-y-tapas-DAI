@@ -65,8 +65,8 @@ Vagrant.configure(2) do |config|
     azure.mgmt_endpoint = 'https://management.core.windows.net'
     azure.subscription_id = '8afb40f4-4482-4a5c-832a-b7aab655fed1'
     azure.vm_image = 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150506-en-us-30GB'
-    azure.vm_name = 'maquinaavm2'
-    azure.cloud_service_name = 'maquinaavm2'
+    azure.vm_name = 'maquinaavm'
+    azure.cloud_service_name = 'maquinaavm-service-xuybo'
     azure.vm_password = 'Clave#Angel#1'
     azure.vm_location = 'Central US'
         azure.ssh_port = '22'
@@ -150,13 +150,13 @@ def test():
 Para ejecutarlo tenemos que ejecutar:
 
 ```
-sudo fab -p 'Clave#Angel#1' -H vagrant@maquinaavm2.cloudapp.net ejecutar_app
+sudo fab -p 'Clave#Angel#1' -H vagrant@maquinaavm-service-xuybo.cloudapp.net ejecutar_app
 ```
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/Seleccioacuten_011_zpscxuy4rvj.png)
 
 * podemos comprobar que efectivamente funciona, [aplicación](http://maquinaavm2.cloudapp.net/):
 
-![](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/Seleccioacuten_012_zps2ccmkcp0.png)
+![](http://i666.photobucket.com/albums/vv21/angelvalera/Ejercicios%20tema%206/Seleccioacuten_004_zpskpbu6eux.png)
 
 Todo se automatiza como he dicho en el siguiente [script](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/azure.sh)
