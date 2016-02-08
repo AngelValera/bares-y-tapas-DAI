@@ -1,16 +1,16 @@
 [![resultado del test](https://travis-ci.org/AngelValera/bares-y-tapas-DAI.svg?branch=master)](https://travis-ci.org/AngelValera/bares-y-tapas-DAI)
-
 [![SnapCI](https://snap-ci.com/AngelValera/bares-y-tapas-DAI/branch/master/build_image)](https://snap-ci.com/AngelValera/bares-y-tapas-DAI/branch/master)
-
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](http://appbaresytapas.herokuapp.com/)
 
 [![Docker](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/dockericon_zps5smgqzbv.png)](https://hub.docker.com/r/angelvalera/bares-y-tapas-dai/)
-
 [![Azure](http://azuredeploy.net/deploybutton.png)](http://maquinaavm-service-xuybo.cloudapp.net
 )
 
 #**BARES Y TAPAS**#
 ## **Proyecto de Infraestructura Virtual junto con Desarrollo de Aplicaciones para Internet** ##
+
+**Correo de contacto:** angelvalera.epal@gmail.com
+
 
 **Descripción:**
 
