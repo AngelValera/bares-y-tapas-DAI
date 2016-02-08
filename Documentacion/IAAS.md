@@ -85,7 +85,7 @@ Por último indicamos que provisione la máquina usando el playbook de ansible, 
 
 * Ahora definimos el [playbook](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/despliegueAzure/playbookIV.yml) de ansible:
 
-```
+```YML
 - hosts: localhost
   remote_user: vagrant
   become: yes
