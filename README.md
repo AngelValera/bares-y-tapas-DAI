@@ -76,7 +76,7 @@ Para el entorno de pruebas se ha utilizado Docker el cual está basado en un sis
 ##**4-Despliegue en un IaaS AZURE**##
 
 
-Para el despliegue de la aplicación en un IaaS, he decidido usar Vagrant para la creación de máquinas virtuales, y Ansible para el provisionamiento de dichas máquinas virtuales, los elijo porque me han resultado más fáciles de usar que por ejemplo chef y su árbol específico de directorios. Las máquinas virtuales se crearán en una cuenta de Azure, configurada correctamente.
+Para el despliegue de la aplicación en un IaaS, he decidido usar Vagrant para la creación de máquinas virtuales, Ansible para el provisionamiento de dichas máquinas virtualesy Fabric para el despliegue, los elijo porque me han resultado más fáciles de usar que por ejemplo chef y su árbol específico de directorios. Las máquinas virtuales se crearán en una cuenta de Azure, configurada correctamente.
 
 Para instalar tanto vagrant como ansible se proporiona un script llamado **[install_Azure_Vagrant.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/install_Azure_Vagrant.sh)** y para desplegar la aplicación completa en una máquina de azure se proporciona otro script llamado **[azure.sh](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/azure.sh)**
 

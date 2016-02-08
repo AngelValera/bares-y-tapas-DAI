@@ -50,9 +50,11 @@ cat azurevagrant.key > azurevagrant.pem
 * Ahora lo que debemos hacer es crear el [vagrantfile](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/despliegueAzure/Vagrantfile):
 
 ```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 Vagrant.configure(2) do |config|
   config.vm.box = "azure"
-  config.vm.box_url = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box'  
+  config.vm.box_url = 'https://github.com/msopentech/vagrant-azure/raw/master/dummy.box'
   config.vm.network "public_network"
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.define "localhost" do |l|
@@ -63,9 +65,10 @@ Vagrant.configure(2) do |config|
     azure.mgmt_endpoint = 'https://management.core.windows.net'
     azure.subscription_id = '8afb40f4-4482-4a5c-832a-b7aab655fed1'
     azure.vm_image = 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150506-en-us-30GB'
-    azure.vm_name = 'maquinaavm'
+    azure.vm_name = 'maquinaavm2'
+    azure.cloud_service_name = 'maquinaavm2'
     azure.vm_password = 'Clave#Angel#1'
-    azure.vm_location = 'Central US' 
+    azure.vm_location = 'Central US'
         azure.ssh_port = '22'
         azure.tcp_endpoints = '80:80'
   end
@@ -92,7 +95,7 @@ Por último indicamos que provisione la máquina usando el playbook de ansible, 
   become_method: sudo
   tasks:
   - name: Actualizar repositorios
-    apt: update_cache=yes        
+    apt: update_cache=yes
   - name: Instalar dependencias
     apt: name={{ item }}
     with_items:
@@ -100,15 +103,13 @@ Por último indicamos que provisione la máquina usando el playbook de ansible, 
       - python-dev
       - build-essential
       - python-psycopg2
-      - git    
+      - git
   - name: easy_install
-    easy_install: name=pip    
+    easy_install: name=pip
   - name: Descargar fuentes
-    git: repo=https://github.com/AngelValera/bares-y-tapas-DAI dest=~/appBaresyTapas force=yes    
+    git: repo=https://github.com/AngelValera/bares-y-tapas-DAI dest=~/bares-y-tapas-DAI force=yes
   - name: Instalar requirements
-    pip: requirements=~/appBaresyTapas/requirements.txt    
-  - name: Lanzar app
-    command: nohup python ~/appBaresyTapas/manage.py runserver 0.0.0.0:80
+    pip: requirements=~/bares-y-tapas-DAI/requirements.txt
 ```
 * Además en el fichero [ansible_host](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/despliegueAzure/ansible_hosts) ponemos:
 
@@ -131,7 +132,31 @@ Esto hace que se ejecute el vagrantfile.
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Ejercicios%20tema%206/Seleccioacuten_003_zpsylr2hhzb.png)
 
-* podemos comprobar que efectivamente funciona, [aplicación](http://maquinaavm-service-xuybo.cloudapp.net/):
 
-![](http://i666.photobucket.com/albums/vv21/angelvalera/Ejercicios%20tema%206/Seleccioacuten_004_zpskpbu6eux.png)
+* Ahora para desplegar la aplicación usamos **Fabric**, en un archivo [fabfile.py](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/fabfile.py).
 
+```python
+from fabric.api import task, run, local, hosts, cd, env
+# Ejecutamos la aplicacion
+def ejecutar_app():
+    run('sudo  python /root/bares-y-tapas-DAI/manage.py runserver 0.0.0.0:80')
+# Borramos la aplicacion
+def borrar():
+    run('sudo rm -r /root/bares-y-tapas-DAI')
+# Realizar  Test
+def test():
+	run('sudo  python /root/bares-y-tapas-DAI/manage.py test ')
+```
+Para ejecutarlo tenemos que ejecutar:
+
+```
+sudo fab -p 'Clave#Angel#1' -H vagrant@maquinaavm2.cloudapp.net ejecutar_app
+```
+
+![](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/Seleccioacuten_011_zpscxuy4rvj.png)
+
+* podemos comprobar que efectivamente funciona, [aplicación](http://maquinaavm2.cloudapp.net/):
+
+![](http://i666.photobucket.com/albums/vv21/angelvalera/Proyecto%20final/Seleccioacuten_012_zps2ccmkcp0.png)
+
+Todo se automatiza como he dicho en el siguiente [script](https://github.com/AngelValera/bares-y-tapas-DAI/blob/master/Scripts/azure.sh)

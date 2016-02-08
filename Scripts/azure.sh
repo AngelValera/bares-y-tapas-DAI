@@ -1,4 +1,7 @@
 #Despliegue en Azure usando vagrant
-cd ../despliegueAzure/
-vagrant up --provider=azure
-fab -p 'Clave#Angel#1' -H vagrant@maquinaavm-service-xuybo.cloudapp.net ejecutar_app
+#!/bin/bash
+
+
+#Despliegue en Azure usando vagrant
+sudo vagrant up --provider=azure
+sudo fab -p 'Clave#Angel#1' -H vagrant@maquinaavm2.cloudapp.net ejecutar_app
